@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="customer/layout :: head"></head>
+<body>
+<h3>View Detail Customer</h3>
+
+<p>
+    <a th:href="@{/}">
+        Back to customer list
+    </a>
+</p>
+
+<div id="form">
+    <form action="#" th:action="@{customer/{id}/view}" th:object="${customer}"
+          method="get" novalidate="novalidate" enctype="multipart/form-data">
+        <div>
+            <label>ID</label>
+            <input type="text" th:field="*{id}"/>
+        </div>
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{name}"/>
+        </div>
+        <div>
+            <label>Gender</label>
+            <input type="text" th:field="*{gender}"/>
+        </div>
+        <div>
+            <label>Address</label>
+            <input type="text" th:field="*{address}"/>
+        </div>
+        <div>
+            <label>Picture</label>
+        </div>
+        <div>
+            <img th:src="@{'/i/' + ${customer.avatar}}">
+
+        </div>
+
+    </form>
+</div>
+<footer th:replace="customer/layout :: footer"></footer>
+</body>
+</html>
